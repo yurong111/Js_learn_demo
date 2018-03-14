@@ -1,2 +1,4 @@
 
-kuayu/server/node_modules*
+kuayu/server/node_modules
+kuayu/package-lock.json
+kuayu/server/package-lock.json
