@@ -15,8 +15,20 @@ const app = new Koa();
 // 对于任何请求，app将调用该异步函数处理请求：
 app.use(async (ctx, next) => {
     await next();
-    ctx.response.type = 'text/html';
-    ctx.response.body = 'Hello, koa2!';
+
+    switch (ctx.url) {
+        case '/cors':
+            let html =  '<h1>Hello, koa2!</h1>';
+            ctx.response.type = 'text/html';
+            ctx.response.body = html;
+            break;
+
+        case '/jsonp':
+            var callback = ctx.req.query.callback;
+            let content = callback+"({'message': '测试'})";
+            ctx.res.send(content);
+            break;
+    }
 });
 
 // 在端口3000监听:
