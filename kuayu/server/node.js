@@ -6,7 +6,10 @@
 const Koa = require('koa');
 
 // 创建一个Koa对象表示web app本身:
-const app = new Koa();
+
+const cors = require('@koa/cors');
+// const app = new Koa();
+app.use(cors());
 
 // 对于任何请求，app将调用该异步函数处理请求：
 app.use(async (ctx, next) => {
@@ -17,4 +20,4 @@ app.use(async (ctx, next) => {
 
 // 在端口3000监听:
 app.listen(3500);
-console.log('app started at port 3000...');
+console.log('app started at port 3500...');
