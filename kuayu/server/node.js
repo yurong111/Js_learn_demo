@@ -23,9 +23,11 @@ app.use(async (ctx, next) => {
     await next();
     // ctx.response.type = 'text/html';
     // ctx.response.body = 'Hello, koa2!';
-    var callback = ctx.req.query.callback;
-    var content = callback+"({'message:'测试'})";
-    ctx.res.send(content);
+    var f = ctx.req.url.split('=')[1];
+    ctx.res.writeHead(200,{'Content-Type':'application/json;charset=utf-8'});
+
+    var content = f+"({'message':'测试'})";
+    ctx.res.end(content);
 });
 
 // 在端口3000监听:
