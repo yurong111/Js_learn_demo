@@ -18,14 +18,14 @@ app.use(async (ctx, next) => {
 
     switch (ctx.req.url) {
         case '/cors':
-            let html =  '<h1>Hello, koa2!</h1>';
+            var html =  '<h1>Hello, koa2!</h1>';
             ctx.response.type = 'text/html';
             ctx.response.body = html;
             break;
 
-        case '/jsonp':
+        case '/':
             var callback = ctx.req.query.callback;
-            let content = callback+"({'message': '测试'})";
+            var content = callback+"({'message': '测试'})";
             ctx.res.send(content);
             break;
     }
