@@ -1,6 +1,9 @@
 /**
  * Created by smilen on 14/03/2018.
  */
+/*
+ https://chenshenhai.github.io/koa2-note/
+*/
 
 // 导入koa，和koa 1.x不同，在koa2中，我们导入的是一个class，因此用大写的Koa表示:
 const Koa = require('koa');
@@ -23,7 +26,14 @@ app.use(async (ctx, next) => {
     await next();
     // ctx.response.type = 'text/html';
     // ctx.response.body = 'Hello, koa2!';
-    var f = ctx.req.url.split('=')[1];
+    var f = ctx.request.query.callback;
+
+    var request = ctx.request;
+    var req_query = request.query;
+    var req_querystring = request.querystring;
+
+    console.log('a', ctx.request.body)
+
     ctx.res.writeHead(200,{'Content-Type':'application/json;charset=utf-8'});
 
     var content = f+"({'message':'测试'})";
