@@ -13,23 +13,19 @@ const app = new Koa();
 // app.use(cors());
 
 // 对于任何请求，app将调用该异步函数处理请求：
+/*app.use(async (ctx, next) => {
+    await next();
+    ctx.response.type = 'text/html';
+    ctx.response.body = 'Hello, koa2!';
+});*/
+
 app.use(async (ctx, next) => {
     await next();
-
-    alert(ctx.req.path);
-    switch (ctx.req.path) {
-        case '/cors':
-            var html =  '<h1>Hello, koa2!</h1>';
-            ctx.response.type = 'text/html';
-            ctx.response.body = html;
-            break;
-
-        case '/':
-            var callback = ctx.req.query.callback;
-            var content = callback+"({'message': '测试'})";
-            ctx.res.send(content);
-            break;
-    }
+    // ctx.response.type = 'text/html';
+    // ctx.response.body = 'Hello, koa2!';
+    var callback = ctx.req.query.callback;
+    var content = callback+"({'message:'测试'})";
+    ctx.res.send(content);
 });
 
 // 在端口3000监听:
