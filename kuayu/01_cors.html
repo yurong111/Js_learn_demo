@@ -9,7 +9,29 @@
     原理：服务器设置 Access-Control-Allow-Origin HTTP响应头之后，浏览器将允许跨域请求
     限制：浏览器需要支持HTML5，可以支持post/put等方法
 -->
+    <button onclick="doAjax()">CORS跨域</button>
 
+    <script
+        src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 
+    <script>
+
+        function doAjax() {
+            $.ajax({
+                url: 'http://mini123.link:3500/',
+                type: 'get',
+                success: function(){
+                    alert('success')
+                },
+                error: function(){
+                    alert('error')
+                }
+            })
+        }
+    </script>
 </body>
+
+
 </html>
