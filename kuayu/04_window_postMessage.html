@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨域资源共享（CORS）</title>
+</head>
+<body>
+    <!--
+        原理：HTML5允许窗口之间发送消息
+        限制：浏览器需要支持HTML5，获取窗口句柄后才能相互通信
+    -->
+
+    <script>
+        window.onload = function() {
+            var win = window.open('http://mini123.link/Js_learn_demo/kuayu/04_window_postMessage2.html');
+            win.postMessage('hello windown.postMessage', 'http://mini123.link');
+        }
+    </script>
+</body>
+</html>
