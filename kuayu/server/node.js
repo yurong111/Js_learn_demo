@@ -16,7 +16,7 @@ const app = new Koa();
 app.use(async (ctx, next) => {
     await next();
 
-    switch (ctx.url) {
+    switch (ctx.req.url) {
         case '/cors':
             let html =  '<h1>Hello, koa2!</h1>';
             ctx.response.type = 'text/html';
