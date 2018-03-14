@@ -24,20 +24,26 @@ const app = new Koa();
 
 app.use(async (ctx, next) => {
     await next();
-    // ctx.response.type = 'text/html';
-    // ctx.response.body = 'Hello, koa2!';
-    var f = ctx.request.query.callback;
+    var path = ctx.request.path;
 
-    var request = ctx.request;
-    var req_query = request.query;
-    var req_querystring = request.querystring;
+    switch(path) {
+        case '/':
+            ctx.response.type = 'text/html';
+            ctx.response.body = 'Hello, koa2!';
+            break;
+        case '/jsonp':
+            var f = ctx.request.query.callback;
 
-    console.log('a', ctx.request.body)
+            var request = ctx.request;
+            var req_query = request.query;
+            var req_querystring = request.querystring;
 
-    ctx.res.writeHead(200,{'Content-Type':'application/json;charset=utf-8'});
+            ctx.res.writeHead(200,{'Content-Type':'application/json;charset=utf-8'});
 
-    var content = f+"({'message':'测试'})";
-    ctx.res.end(content);
+            var content = f+"({'message':'测试'})";
+            ctx.res.end(content);
+            break;
+    }
 });
 
 // 在端口3000监听:

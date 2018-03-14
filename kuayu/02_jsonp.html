@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨域资源共享（JSONP）</title>
+</head>
+<body>
+    <!--
+    原理：<script>是可以跨域的，而且在跨域脚本中可以直接回调当前脚本的函数
+    限制：需要创建一个DOM对象并且添加到DOM树，只能用于GET方法
+    -->
+
+    <h1>JSONP</h1>
+    <button onclick="doAjax()">JSONP</button>
+
+    <script
+        src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <script>
+        function doAjax() {
+            // 向头部输入一个脚本，该脚本发起一个跨域请求
+/*方式一*/
+            // $("head").append("<script src='http://mini123.link:3500/?func=showJsonp'><\/script>");
+/*            var url = 'http://mini123.link:3500/?callback=showJsonp'
+//            var url = 'http://127.0.0.1:3500/?callback=showJsonp'
+            var script = document.createElement('script');
+            script.setAttribute('src',url);
+            script.setAttribute('type','text/javascript');
+            document.getElementsByTagName('head')[0].appendChild(script);*/
+
+/*方式二*/
+            $.ajax({
+                method: 'get',
+                url: 'http://mini123.link:3500/jsonp',
+                dataType: 'jsonp',
+                success: function(data) {
+                    console.log('success', data)
+                },
+                error: function(data) {
+                    console.log('error', data)
+                }
+            })
+        }
+
+        function showJsonp(obj){
+            console.log(obj);
+        }
+    </script>
+</body>
+</html>
