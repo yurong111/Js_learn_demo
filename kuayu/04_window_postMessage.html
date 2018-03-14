@@ -10,10 +10,18 @@
         限制：浏览器需要支持HTML5，获取窗口句柄后才能相互通信
     -->
     <h1>window.postMessage1</h1>
+
+    <button onclick="doClick()">window.postMessage</button>
+
+    <iframe id="receiver" src="http://mini123.link/Js_learn_demo/kuayu/04_window_postMessage2.html" width="500" height="60">
+        <p>你的浏览器不支持IFrame。</p>
+    </iframe>
+
     <script>
-        window.onload = function() {
-            var win = window.open('http://mini123.link/Js_learn_demo/kuayu/04_window_postMessage2.html');
-            win.postMessage('hello windown.postMessage', 'http://mini123.link');
+        function doClick() {
+            var receiver = document.getElementById('receiver').contentWindow;
+//            var win = window.open('http://mini123.link/Js_learn_demo/kuayu/04_window_postMessage2.html');
+            receiver.postMessage('hello windown.postMessage', 'http://mini123.link');
         }
     </script>
 </body>
