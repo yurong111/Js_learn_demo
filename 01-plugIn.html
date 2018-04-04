@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>简易轮播图基于jquery插件Demo</title>
+
+    <link rel="stylesheet" href="plug-in/imageSwitch/jquery.imageSwitch.css" />
+</head>
+<body>
+<!--    <div id="previewBox">
+        <div id="picture">
+            <img src="images/d1.jpeg">
+            <img src="images/d2.jpeg"/>
+            <img src="images/d3.jpeg">
+        </div>
+
+        <div id="pageFlag">
+            <ul>
+                <li class="currentPage"></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>-->
+
+    <div id="box"></div>
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>百度
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>&lt;!&ndash;谷歌&ndash;&gt;-->
+    <script src="plug-in/imageSwitch/jquery.imageSwitch.js"></script>
+
+    <script>
+        $(function() {
+            var obj = $("#box").imageSwitch(
+                {
+                    images:[
+                        'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2460377593,4222332340&fm=173&app=25&f=JPEG?w=218&h=146&s=E2915A8B4C5370C614318FF203005037',
+                        'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2460377593,4222332340&fm=173&app=25&f=JPEG?w=218&h=146&s=E2915A8B4C5370C614318FF203005037',
+                        'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2460377593,4222332340&fm=173&app=25&f=JPEG?w=218&h=146&s=E2915A8B4C5370C614318FF203005037'],
+                    theme:"#999"
+                });
+            obj.moveTo(2);
+        })
+    </script>
+</body>
+</html>
