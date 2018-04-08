@@ -1,14 +1,15 @@
 //如果是在node环境中，通过require引入jQuery中，如果是在浏览器中，就通过window方式传递jQuery
 if(typeof module !=='undefined' && typeof exports ==='object'){
-    var $=require('jquery');
+    var $=require('http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js');
     console.log('module');
 }else{
     var $=window.$
-    console.log('window');
+    console.log('window', $);
 }
 
 ;(function() {
 
+    console.log('$', $);
 	var startX = 0;
 	var endX = 0;
 	var num = 0;
