@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>简易轮播图基于jquery插件兼容模板Demo</title>
+
+    <link rel="stylesheet" href="plug-in/imageSwitch/imageSwitch3.css" />
+</head>
+<body>
+
+    <div id="box"></div>
+
+    <!--<script src="./js/require.js" data-main="./js/main3"></script>--><!--模块化方式可以把这句注释放开，注释以下所有-->
+
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="plug-in/imageSwitch/imageSwitch3.js"></script>
+
+    <script>
+        window.onload = function() {
+            var obj = new ImageSwitch(
+                {
+                    id: 'box',
+                    images:[
+                        'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2460377593,4222332340&fm=173&app=25&f=JPEG?w=218&h=146&s=E2915A8B4C5370C614318FF203005037',
+                        'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2460377593,4222332340&fm=173&app=25&f=JPEG?w=218&h=146&s=E2915A8B4C5370C614318FF203005037',
+                        'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2460377593,4222332340&fm=173&app=25&f=JPEG?w=218&h=146&s=E2915A8B4C5370C614318FF203005037'],
+                    theme:"#999"
+                });
+            obj.moveTo(2);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+	*{
+		margin:0;
+		padding:0;
+	}
+	
+	img{
+		border: none 0;
+	}
+	
+	#previewBox{
+		position:relative;
+		width:100vw;
+		margin:0 auto;
+		overflow: hidden;
+		cursor: pointer;
+	}
+	
+	#picture{
+		position:relative;
+		width:300vw;
+		overflow: hidden;
+
+		transition:left 1s;
+		-webkit-transition:left 1s; /* Safari and Chrome */
+	}
+	
+	#picture img {
+		width:100vw;
+		height: auto;
+		float:left;
+	}
+	
+	#pageFlag {
+		position:absolute;
+		bottom:5px;
+		width: 100%;
+		text-align: center;
+	}
+	
+	#pageFlag li {
+		display: inline-block;
+		box-sizing: border-box;
+		width:8px;
+		height:8px;
+		margin: 0 3px;
+		background-color: #eee;
+		border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+	}
