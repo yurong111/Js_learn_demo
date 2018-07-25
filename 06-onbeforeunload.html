@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS监听浏览器刷新、关闭事件</title>
+</head>
+<!-- 
+打开页面时，马上关闭，是不会弹框提示的，只有过一会儿才会提示。
+估计是因为一打开马上关闭，也不会有空余时间做什么操作，所以不提示。
+但是提示内容不是我设置的。。。。设置的为毛不显示？
+ -->
+<body>
+    <script>
+      window.onbeforeunload = function(e) {
+        e.returnValue = '您确定刷新/退出页面吗';
+      };
+    </script>
+</body>
+</html>
